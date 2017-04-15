@@ -33,29 +33,6 @@ let IP = {
     next();
 });
 
-// app.get('/', (req, res)=>{
-//   const ipAddress = ip.address()
-// const ip1 = req.ip
-//
-// const IP = {
-//   privateIpAddress: `${ipAddress}`,
-//
-// }
-// // res.render('index', {
-// //   ipAddress,
-// //   ip1
-// // })
-// getIP(function (err, ip) {
-//   if (err) {
-//       // every service in the list has failed
-//       throw err;
-//   }
-// IP.PublicIpAddress = ip
-//   res.json(IP);
-// });
-//
-// })
-
 
 
 app.listen(PORT, ()=>{
