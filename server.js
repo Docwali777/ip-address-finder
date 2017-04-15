@@ -14,17 +14,21 @@ app.get('/', (req, res)=>{
 const ip1 = req.ip
 
 const IP = {
-  privateIpAddress: `IPv6 ${req.ip} or can be written as ${ipAddress}`,
+  privateIpAddress: `${ipAddress}`,
 
 }
-getIP(function (err, ip) {
-  if (err) {
-      // every service in the list has failed
-      throw err;
-  }
-IP.PublicIpAddress = ip
-  res.json(IP);
-});
+res.render('index', {
+  ipAddress,
+  ip1
+})
+// getIP(function (err, ip) {
+//   if (err) {
+//       // every service in the list has failed
+//       throw err;
+//   }
+// IP.PublicIpAddress = ip
+//   res.json(IP);
+// });
 
 })
 
