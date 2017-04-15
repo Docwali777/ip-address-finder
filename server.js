@@ -21,8 +21,14 @@ app.set('view engine', 'ejs')
 
 app.get('/', function(req, res, next) {
    //  var ip_info = get_ip(req);
-    var ip_info = get_ip(req, right_most_proxy='True')
-    res.json(ip_info);
+    var ip_info = get_ip(req).clientIp
+let userInfo=   req.headers['user-agent']
+let IP = {
+  ip_info,
+  userInfo
+}
+    console.log(req.headers['user-agent'])
+    res.json(IP);
     // { clientIp: '127.0.0.1', clientIpRoutable: false }
     next();
 });
