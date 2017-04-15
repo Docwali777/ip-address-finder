@@ -3,8 +3,14 @@ const app = express();
 const ejs = require('ejs')
 const PORT = process.env.PORT || 3000
 const ip = require('ip');
-var getIP = require('external-ip')();
+var extIP = require('external-ip');
 
+var getIP = extIP({
+    replace: true,
+    services: ['http://ifconfig.co/x-real-ip', 'http://ifconfig.io/ip'],
+    timeout: 600,
+    getIP: 'parallel'
+});
 
 var publicIpAddress ='';
 
