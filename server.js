@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3000
 const ip = require('ip');
 var getIP = require('external-ip')();
 
+
 var publicIpAddress ='';
 
 app.set('view engine', 'ejs')
@@ -17,18 +18,18 @@ const IP = {
   privateIpAddress: `${ipAddress}`,
 
 }
-res.render('index', {
-  ipAddress,
-  ip1
-})
-// getIP(function (err, ip) {
-//   if (err) {
-//       // every service in the list has failed
-//       throw err;
-//   }
-// IP.PublicIpAddress = ip
-//   res.json(IP);
-// });
+// res.render('index', {
+//   ipAddress,
+//   ip1
+// })
+getIP(function (err, ip) {
+  if (err) {
+      // every service in the list has failed
+      throw err;
+  }
+IP.PublicIpAddress = ip
+  res.json(IP);
+});
 
 })
 
