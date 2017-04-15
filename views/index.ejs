@@ -1,3 +1,96 @@
-<h1>Hello</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<p><%= ip_info %></p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="jumbotron text-center">
+        <h2 class='text-center'>Request Header Parser Microservice</h2>
+        <hr>
+        <p>User Story: I can get the IP address, language and operating system for my browser.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <table class='table table-bordered table-hover table-responsive table-sm'>
+      <tbody>
+        <tr>
+          <td><strong>Computer Information</strong></td>
+          <td>
+            <%= IP.UserComputerInformation  %>
+          </td>
+        </tr>
+        <tr>
+          <td class='table-inverse'><strong>Language</strong></td>
+          <td>
+            <%= IP.Language  %>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>PublicIpAddress</strong></td>
+          <td>
+            <%= IP.PublicIpAddress  %>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>PrivateIpAddress</strong></td>
+          <td>
+            <%= IP.PrivateIpAddress  %>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+    <hr>
+    <h3>Lesson Learned</h3>
+    <ul >
+      <li>Knowledge about the differnt libraries which are available in the NPM library</li>
+      <li>Knowledge about the <a href="https://expressjs.com/en/api.html">Express Library</a> and request.header</li>
+      <li>Use of <a href="http://www.embeddedjs.com/">EJS (Ope Source Javascript Library)</a>  </li>
+      <li>Use of <a href="https://v4-alpha.getbootstrap.com/content/tables/">Bootstrap 4</a> to create a basic table</li>
+
+    </ul>
+    <hr>
+
+    <table class='table'>
+
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Web Address</th>
+          <th>Information Obtained</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ip</td>
+          <td><a href="https://www.npmjs.com/package/ip">https://www.npmjs.com/package/ip</a></td>
+          <td>I was able to get the private IP address</td>
+        </tr>
+        <tr>
+          <td>ipware</td>
+          <td><a href="https://www.npmjs.com/package/ipware">https://www.npmjs.com/package/ipware</a></td>
+          <td>I was able to get the private IP address</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+
+
+
+</body>
+
+</html>

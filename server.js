@@ -8,12 +8,7 @@ var get_ip = require('ipware')().get_ip;
 
 
 
-var getIP = extIP({
-    replace: true,
-    services: ['http://ifconfig.co/x-real-ip', 'http://ifconfig.io/ip'],
-    timeout: 600,
-    getIP: 'parallel'
-});
+
 
 var publicIpAddress ='';
 
@@ -27,8 +22,9 @@ let IP = {
   Language: req.headers['accept-language'].split(',')[0],
   UserComputerInformation: req.headers['user-agent'].split('(')[1].split(')')[0]
 }
-    console.log(req.headers)
-    res.json(IP);
+    res.render('index', {
+      IP: IP
+    });
     // { clientIp: '127.0.0.1', clientIpRoutable: false }
     next();
 });
