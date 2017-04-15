@@ -20,14 +20,14 @@ var publicIpAddress ='';
 app.set('view engine', 'ejs')
 
 app.get('/', function(req, res, next) {
-   //  var ip_info = get_ip(req);
-    var ip_info = get_ip(req).clientIp
-let userInfo=   req.headers['user-agent']
+
 let IP = {
-  ip_info,
-  userInfo
+  PublicIpAddress: get_ip(req).clientIp,
+  PrivateIpAddress: ip.address(),
+  Language: req.headers['accept-language'].split(',')[0],
+  UserComputerInformation: req.headers['user-agent'].split('(')[1].split(')')[0]
 }
-    console.log(req.headers['user-agent'])
+    console.log(req.headers)
     res.json(IP);
     // { clientIp: '127.0.0.1', clientIpRoutable: false }
     next();
