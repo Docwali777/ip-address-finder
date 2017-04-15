@@ -6,13 +6,7 @@ const ip = require('ip');
 var extIP = require('external-ip');
 var get_ip = require('ipware')().get_ip;
 
- app.use(function(req, res, next) {
-    //  var ip_info = get_ip(req);
-     var ip_info = get_ip(req, right_most_proxy='True')
-     res.json(ip_info);
-     // { clientIp: '127.0.0.1', clientIpRoutable: false }
-     next();
- });
+
 
 var getIP = extIP({
     replace: true,
@@ -24,6 +18,14 @@ var getIP = extIP({
 var publicIpAddress ='';
 
 app.set('view engine', 'ejs')
+
+app.get('/', function(req, res, next) {
+   //  var ip_info = get_ip(req);
+    var ip_info = get_ip(req, right_most_proxy='True')
+    res.json(ip_info);
+    // { clientIp: '127.0.0.1', clientIpRoutable: false }
+    next();
+});
 
 // app.get('/', (req, res)=>{
 //   const ipAddress = ip.address()
